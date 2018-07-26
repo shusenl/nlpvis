@@ -1,0 +1,36 @@
+<div id="{{id}}container" style="display:block;width:100%; height:100%">
+<div style="margin-top: 10px; margin-left:10px; margin-right:10px" id='{{id}}'>
+
+    <div class="form-group">
+        <div class="input-group mb-3">
+            <button class="btn btn-primary mr-2" id="{{id}}Predict">Predict</button>
+
+            <button class="btn btn-primary mr-2" id="{{id}}PredictAll">Predict All</button>
+
+            <div class="input-group-prepend ">
+                <label class="input-group-text" for="inputGroupSelect01">ex</label>
+            </div>
+
+            <select id="{{id}}selectExample" class="custom-select">
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Premise</label>
+        <textarea id="{{id}}src" class="form-control"></textarea>
+        <div class="input-group-append float-right" id="{{id}}srcInput">
+            <button class="btn btn-outline-secondary" id="{{id}}perturbSource">Perturb</button>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Hypothesis</label>
+        <textarea id="{{id}}targ" class="form-control"></textarea>
+        <div class="input-group-append float-right" id="{{id}}targInput">
+            <button class="btn btn-outline-secondary" id="{{id}}perturbTarget">Perturb</button>
+        </div>
+    </div>
+
+</div>
+</div>

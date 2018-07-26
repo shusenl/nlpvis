@@ -1,0 +1,173 @@
+h2 {
+  font: 14px Arial, sans-serif;
+  color: grey;
+  padding: 10px;
+  text-align: center;
+}
+
+html, body {
+  height: 100%;
+}
+
+/** {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}*/
+
+form {
+  margin-top: 20%;
+  width: 70%;
+}
+
+form div {
+  margin-top: 20px;
+}
+
+div.notice {
+    position: relative;
+    text-align: center;
+    padding: 2px;
+    font: 14px sans-serif;
+    background: lightsteelblue;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+#layoutContainer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.axis line, .axis path {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+#filter_control {
+  margin: 5%;
+  width: 30%;
+  float: left;
+}
+
+#function_dialog {
+  position: absolute;
+  width: 30%;
+  max-height: 50%;
+  border-radius: 25px;
+  background: #f3f3f3;
+  ;
+  border: 2px solid #e7e7e7;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: none;
+  z-index: 100;
+}
+
+.alert_dialog {
+    position: absolute;
+    width: 30%;
+    max-height: 20%;
+    border-radius: 25px;
+    border: 2px solid #e7e7e7;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: none;
+}
+
+.dialog {
+  width: 45%;
+  float: left;
+  margin: 2%;
+}
+
+.dialog input {
+  margin: 2%;
+}
+
+table {
+    width: 60%;
+    text-align: center;
+    /*margin: auto;*/
+    /*margin-top: %;*/
+    /*border: 1px solid black;*/
+}
+
+table th,
+tr {
+    text-align: center;
+}
+
+@font-face {
+    font-family: FontAwesome;
+    src: url(../font/fontawesome-webfont.ttf);
+}
+
+/*.svg-content {
+    display: inline-block;
+    position: relative;
+}*/
+.hwt-container {
+    display: block;
+    /*background-color: #f8f9fa;*/
+}
+/*.hwt-content {
+    /*width: 760px;
+    height: 100px;
+    padding: 20px;
+    border: 1px solid #adb5bd;
+    color: inherit;
+    font: 18px/25px 'Droid Sans Mono', sans-serif;
+}*/
+.hwt-content{
+  display: block;
+  width: 100%;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.hwt-input:focus {
+    outline-color: #495057;
+}
+.hwt-content mark {
+    border-radius: 3px;
+    background-color: #d0bfff;
+}
+.hwt-content mark.red {
+    background-color: #ffc9c9;
+}
+.hwt-content mark.blue {
+    background-color: #a3daff;
+}
+.hwt-content mark.yellow {
+    background-color: #ffec99;
+}
+
+/*.hwt-container,
+.hwt-backdrop,
+textarea.hwt-content {
+  position: relative;
+  top: 0;
+  bottom: 0;
+}*/
+/*.full-height {
+  position: relative;
+  /*height: 400px;*/
+}*/

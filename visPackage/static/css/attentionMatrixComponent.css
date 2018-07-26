@@ -1,0 +1,41 @@
+.attentionMatrixComponent_text_highlight{
+	font-size:16px;
+	font-weight:bold;
+	fill:orange;
+	alignment-baseline:middle;
+}
+
+
+.attentionMatrixComponent_text_collapse{
+	font-size:16px;
+	font-weight:bold;
+	fill:maroon;
+	alignment-baseline:middle;
+}
+
+
+.attentionMatrixComponent_text_normal{
+	font-size:12px;
+	font-weight:normal;
+	fill:black;
+	alignment-baseline:middle;
+	
+}
+
+.attentionMatrixComponent_text_normal:hover{
+	font-size:16px;
+	font-weight:bold;
+	fill:orange;
+	alignment-baseline:middle;
+	
+}
+
+
+.attentionMatrixComponent_background_text{
+	alignment-baseline:middle;
+	font-size:32px;
+	fill:steelblue;
+	fill-opacity:0.2;
+	text-anchor:middle;
+	pointer-events:none;
+}

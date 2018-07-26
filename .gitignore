@@ -1,0 +1,7 @@
+ignore python cache
+*.pyc
+
+ignore data files
+*.hdf5
+*.jar
+*.txt

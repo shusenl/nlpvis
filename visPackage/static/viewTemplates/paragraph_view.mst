@@ -1,0 +1,38 @@
+<div id="{{id}}container" style="display:block;width:100%; height:100%">
+<div style="margin-top: 10px; margin-left:10px; margin-right:10px" id='{{id}}'>
+
+    <div class="form-group">
+        <div class="input-group mb-3">
+            <button class="btn btn-primary mr-2" id="{{id}}Predict">Predict</button>
+
+            <!-- <button class="btn btn-primary mr-2" id="{{id}}PredictAll">Predict All</button> -->
+
+            <div class="input-group-prepend ">
+                <label class="input-group-text" for="inputGroupSelect01">ex</label>
+            </div>
+
+            <select id="{{id}}selectExample" class="custom-select">
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Paragraph</label>
+        <textarea id="{{id}}src" class="form-control" style="height:140px"></textarea>
+        <!-- <div id="{{id}}src" style="overflow:scroll; height:140px; border: 1px solid #ced4da; border-radius: .25rem; padding: .375rem .75rem;"> -->
+    </div>
+
+    <div class="form-group">
+        <label>Question</label>
+        <textarea id="{{id}}targ" class="form-control" style="height:40px"></textarea>
+        <div class="input-group-append float-right" id="{{id}}targInput">
+            <button class="btn btn-outline-secondary" id="{{id}}perturbTarget">Perturb</button>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Answer</label>
+        <textarea id="{{id}}pred" class="form-control" style="height:40px"></textarea>
+    </div>
+</div>
+</div>

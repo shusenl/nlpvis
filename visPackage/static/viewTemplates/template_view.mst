@@ -1,0 +1,4 @@
+<div id="{{id}}container" style="display:block;width:100%; height:100%">
+<div id='{{id}}' class="content">
+</div>
+</div>
