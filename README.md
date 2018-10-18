@@ -11,7 +11,7 @@ The MC model is based on the BiDAF implementation.
 - Please install numpy, pytorch, h5py, requests, nltk, python-socketio, eventlet, pattern, etc
    `pip install -r requirements.txt`
 - Download model and data file (download from google drive):  
-   `cd src; python downloadModels.py`
+   `python downloadModels.py`
 
 ### 1. Training
 - The pre-trained model will be loaded.
