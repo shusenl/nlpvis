@@ -6,4 +6,3 @@ google-cloud
 python-socketio
 eventlet
 pattern
-nltk
