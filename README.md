@@ -8,7 +8,8 @@ The MC model is based on the BiDAF implementation.
 ## Setup
 
 ### 1. Install
-- Please install numpy, pytorch, h5py, requests, nltk, python-socketio, eventlet, pattern, etc
+- This tool is using Python 2.7, support for Python 3.x is planned.
+- Please install numpy, pytorch, h5py, requests, nltk, python-socketio, eventlet, pattern, etc  
    `pip install -r requirements.txt`
 - Download model and data file (download from google drive):  
    `python downloadModels.py`
@@ -19,7 +20,7 @@ The MC model is based on the BiDAF implementation.
 ### 2. Test the model
 - Using the pretrained model to do evaluation on val set. Expect to see `Val: 0.8631, Loss: 0.3750`
 - To test run the following:  
-  `python eval.py --gpuid -1 --data ../data/snli_1.0/snli_1.0-val.hdf5 --word_vecs ../data/glove.hdf5 --encoder proj --attention local --classifier local --dropout 0.0 --load_file ../data/local_300_parikh`
+  `python -m nli_src.eval --gpuid -1 --data data/snli_1.0/snli_1.0-val.hdf5 --word_vecs data/glove.hdf5 --encoder proj --attention local --classifier local --dropout 0.0 --load_file data/local_300_parikh`
 
 
 
