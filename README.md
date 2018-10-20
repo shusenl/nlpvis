@@ -23,8 +23,11 @@ The MC model is based on the BiDAF implementation.
   `python -m nli_src.eval --gpuid -1 --data data/snli_1.0/snli_1.0-val.hdf5 --word_vecs data/glove.hdf5 --encoder proj --attention local --classifier local --dropout 0.0 --load_file data/local_300_parikh`
 
 
-
 ### 3. Run the visualization server for NLI (for MC run MCexampleVis.py)
  - Start the server:  
    `python NLIexampleVis.py`
  - Then open the browser at http://localhost:5050/
+
+### 4. Docker Image
+Alternative you can also run the server from a docker image without installing anything.
+https://hub.docker.com/r/dockerzhimin/nlpvis/
