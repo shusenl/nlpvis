@@ -31,3 +31,12 @@ The MC model is based on the BiDAF implementation.
 ### 4. Docker Image
 Alternative you can also run the server from a docker image without installing anything.
 https://hub.docker.com/r/dockerzhimin/nlpvis/
+
+Instruction to run the docker server:
+- Download docker image:  
+  `docker pull dockerzhimin/nlpvis`
+- look up docker image name: 
+  `docker ls`
+- Start the server (replace image_name with the correct image name):  
+  `docker run -d -p 5050:5050 [image_name]`
+- Then open the browser at http://localhost:5050/
