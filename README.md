@@ -44,6 +44,10 @@ Instruction to run the docker server:
 - Then open the browser at http://localhost:5050/
   The tool has only been extensively tested for Chrome, there are known issues with firefox (font size and positions are altered for some visual elements)
 
+### 5. Roadmap / Planned Features
+- Oct 2018 - Support for Machine Comprehension & Natural Language Interference
+- Mid 2019 - Support for Neural Machine Translation
+
 Related Publications:
 
 **Visual Interrogation of Attention-Based Models for Natural Language Inference and Machine Comprehension** 
@@ -51,5 +55,5 @@ Shusen Liu, Tao, Li, Zhimin Li, Vivek Srikumar, Valerio Pascucci, and Peer-Timo 
 Conference on Empirical Methods in Natural Language Processing (EMNLP) Demonstration Track, 2018.
 
 **NLIZE: A Perturbation-Driven Visual Interrogation Tool for Analyzing and Interpreting Natural Language Inference Model**
-Shusen Liu, Zhimin Li, Tao Li, Vivek Srikumar, Valerio Pascucci and Peer-Timo Bremer
+Shusen Liu, Zhimin Li, Tao Li, Vivek Srikumar, Valerio Pascucci, and Peer-Timo Bremer
 IEEE Transactions on Visualization and Computer Graphics (InfoVis 2018), 2019
