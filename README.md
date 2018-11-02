@@ -5,6 +5,8 @@
 The NLI learning code was extensively modified from Harvard NLP's reimplimentation of Ankur Parikh's decomposable attention model https://github.com/harvardnlp/decomp-attn.
 The MC model is based on the BiDAF implementation.
 
+[![Video Demonstration](https://img.youtube.com/vi/PKiM4i0oIuY/0.jpg)](https://www.youtube.com/watch?v=PKiM4i0oIuY)
+
 ## Setup
 
 ### 1. Install
@@ -40,3 +42,8 @@ Instruction to run the docker server:
 - Start the server (replace image_name with the correct image name):  
   `docker run -d -p 5050:5050 [image_name]`
 - Then open the browser at http://localhost:5050/
+
+Related Publication:
+**Visual Interrogation of Attention-Based Models for Natural Language Inference and Machine Comprehension** 
+Shusen Liu, Tao, Li, Zhimin Li, Vivek Srikumar, Valerio Pascucci, and Peer-Timo Bremer .
+Conference on Empirical Methods in Natural Language Processing (EMNLP) Demonstration Track, 2018.
