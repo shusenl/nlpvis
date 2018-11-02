@@ -31,7 +31,7 @@ The MC model is based on the BiDAF implementation.
  - Then open the browser at http://localhost:5050/
 
 ### 4. Docker Image
-Alternative you can also run the server from a docker image without installing anything.
+Alternatively you can run the server from a docker image without installing anything.
 https://hub.docker.com/r/dockerzhimin/nlpvis/
 
 Instruction to run the docker server:
@@ -44,6 +44,8 @@ Instruction to run the docker server:
 - Then open the browser at http://localhost:5050/
 
 Related Publication:
+
 **Visual Interrogation of Attention-Based Models for Natural Language Inference and Machine Comprehension** 
+
 Shusen Liu, Tao, Li, Zhimin Li, Vivek Srikumar, Valerio Pascucci, and Peer-Timo Bremer .
 Conference on Empirical Methods in Natural Language Processing (EMNLP) Demonstration Track, 2018.
