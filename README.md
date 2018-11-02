@@ -47,5 +47,9 @@ Instruction to run the docker server:
 Related Publications:
 
 **Visual Interrogation of Attention-Based Models for Natural Language Inference and Machine Comprehension** 
-Shusen Liu, Tao, Li, Zhimin Li, Vivek Srikumar, Valerio Pascucci, and Peer-Timo Bremer .
+Shusen Liu, Tao, Li, Zhimin Li, Vivek Srikumar, Valerio Pascucci, and Peer-Timo Bremer
 Conference on Empirical Methods in Natural Language Processing (EMNLP) Demonstration Track, 2018.
+
+**NLIZE: A Perturbation-Driven Visual Interrogation Tool for Analyzing and Interpreting Natural Language Inference Model**
+Shusen Liu, Zhimin Li, Tao Li, Vivek Srikumar, Valerio Pascucci and Peer-Timo Bremer
+IEEE Transactions on Visualization and Computer Graphics (InfoVis 2018), 2019
