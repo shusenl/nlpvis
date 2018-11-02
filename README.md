@@ -42,6 +42,7 @@ Instruction to run the docker server:
 - Start the server (replace image_name with the correct image name):  
   `docker run -d -p 5050:5050 [image_name]`
 - Then open the browser at http://localhost:5050/
+  The tool has only been extensively tested for Chrome, there are known issues with firefox (font size and positions are altered for some visual elements)
 
 Related Publication:
 
