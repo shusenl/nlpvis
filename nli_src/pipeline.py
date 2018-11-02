@@ -68,7 +68,7 @@ class Pipeline(torch.nn.Module):
 		shared = self.shared
 		shared.input_enc1, shared.input_enc2 = self.encoder(sent1, sent2)
 		shared.att1, shared.att2 = self.attention(shared.input_enc1, shared.input_enc2)
-		shared.out = self.classifier(shared.input_enc1, shared.input_enc2, shared.att1, shared.att2)
+		shared.out, shared.flat_phi1, shared.flat_phi2 = self.classifier(shared.input_enc1, shared.input_enc2, shared.att1, shared.att2)
 
 		# if there is any fwd pass hooks, execute them
 		if hasattr(self.opt, 'forward_hooks') and self.opt.forward_hooks != '':

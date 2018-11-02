@@ -1,7 +1,7 @@
 class latentSpaceComponent extends baseComponent {
     constructor(uuid) {
         super(uuid);
-        this.subscribeDatabyNames(["currentPair"]);
+        this.subscribeDatabyNames(["currentPair", "allPairsPrediction"]);
 
         this.margin = {
             top: 10,
@@ -14,13 +14,8 @@ class latentSpaceComponent extends baseComponent {
 
         this.tableEntry = null;
 
-        d3.select(this.div + "refresh").on("click", d => {
-            this.callFunc("latentStateLookup", {
-                "sentence": this.data["currentPair"][
-                    "sentences"
-                ][1]
-            });
-        });
+        d3.select(this.div + "refresh").on("click", this.triggerLookup.bind(
+            this));
     }
 
     parseDataUpdate(msg) {
@@ -34,7 +29,22 @@ class latentSpaceComponent extends baseComponent {
                 //         "sentences"
                 //     ][0]
                 // });
+                //FIXME only for hypothesis sentence
+            case "allPairsPrediction":
+                this.clear();
+                //trigger lookup
+                this.triggerLookup();
+                break;
         }
+    }
+
+    triggerLookup() {
+        console.log("trigger lookup\n");
+        this.callFunc("latentStateLookup", {
+            "sentence": this.data["currentPair"][
+                "sentences"
+            ][1]
+        });
     }
 
     parseFunctionReturn(msg) {
@@ -63,6 +73,10 @@ class latentSpaceComponent extends baseComponent {
         }
         // console.log(this.tableEntry);
         this.draw();
+    }
+
+    clear() {
+        d3.select(this.div + "table").selectAll("*").remove();
     }
 
     draw() {

@@ -76,7 +76,7 @@ class LocalClassifier(torch.nn.Module):
 		phi = self.phi_joiner([flat_phi1, flat_phi2])
 		self.shared.out = self.h(phi)
 
-		return self.shared.out
+		return self.shared.out, flat_phi1, flat_phi2
 
 	def update_context(self):
 		batch_l = self.shared.batch_l

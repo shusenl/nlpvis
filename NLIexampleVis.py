@@ -22,7 +22,10 @@ visLayout = {
     "column":[{"row":["Summary", "Sentence", "Pipeline"]},
             {"row":["AttentionGraph", "AttentionMatrix", "Prediction"]}]
     }
-
+# visLayout = {
+#     "column":[{"row":["Summary", "Sentence", "LatentRepresentation"]},
+#             {"row":["AttentionGraph", "AttentionMatrix", "Prediction"]}]
+#     }
 # visLayout = {
 #     "column":[{"row":["Summary", "Sentence", "Prediction"]},
 #             {"row":["AttentionGraph", "AttentionMatrix"]}]
@@ -35,6 +38,7 @@ modelVis.setAttentionHook(model.attention)
 modelVis.setPredictionUpdateHook(model.updatePrediction)
 modelVis.setAttentionUpdateHook(model.updateAttention)
 modelVis.setReloadModelCallback(model.reloadModel)
+modelVis.setLayerHook(model.layerValues)
 
 modelVis.setPipelineStatisticHook(model.pipelineStatistic)
 

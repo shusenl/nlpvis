@@ -228,8 +228,8 @@ class attentionComponent extends baseComponent {
                         this.targDepTreeData = undefined;
                         this.targ_dep = undefined;
                         this.normAttention = undefined;
-                        this.setData("allSourceSens", [pair[0]]);
-                        this.setData("allTargetSens", [pair[1]]);
+                        // this.setData("allSourceSens", [pair[0]]);
+                        // this.setData("allTargetSens", [pair[1]]);
                     }
                 } else {
 

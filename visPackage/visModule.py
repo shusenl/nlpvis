@@ -84,8 +84,8 @@ class visModule(object):
         # sio.start_background_task(self.startServer)
 
     # @staticmethod
-    def startServer(self):
-        eventlet.wsgi.server(eventlet.listen(('localhost', 5050)), fApp)
+    def startServer(self, port=5050):
+        eventlet.wsgi.server(eventlet.listen(('localhost', port)), fApp)
         # socketio.run(app, host='localhost',port=5050, debug=True)
 
     def setSentenceParserHook(self, callback):

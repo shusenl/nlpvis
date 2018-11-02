@@ -334,6 +334,13 @@ class modelInterface:
         # self.pipeline = Pipeline(self.opt, self.shared)
         return pred
 
+    def layerValues(self, layerName):
+        attr = None
+        try:
+            attr = getattr(self.shared, layerName).data.numpy()
+        except:
+            print "Don't have layer info for:", layerName
+        return attr
 
     def pipelineStatistic(self, infoType="mira"):
 
