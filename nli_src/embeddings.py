@@ -3,9 +3,9 @@ import h5py
 import torch
 from torch import nn
 from torch import cuda
-from view import *
-from join_table import *
-from holder import *
+from .view import *
+from .join_table import *
+from .holder import *
 
 
 class WordVecLookup(torch.nn.Module):

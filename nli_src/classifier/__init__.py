@@ -1,1 +1,1 @@
-from local_classifier import *
+from .local_classifier import *

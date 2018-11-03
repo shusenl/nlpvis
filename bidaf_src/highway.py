@@ -43,7 +43,7 @@ class Highway(torch.nn.Module):
 		self.shared = shared
 
 		hw_layer = opt.hw_layer
-		self.hw_layers = nn.ModuleList([HighwayLayer(opt, shared) for _ in xrange(hw_layer)])
+		self.hw_layers = nn.ModuleList([HighwayLayer(opt, shared) for _ in range(hw_layer)])
 
 	# input is encoding tensor of shape (seq_l, word_vec_size)
 	def forward(self, seq):

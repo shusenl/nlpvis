@@ -1,6 +1,6 @@
 import sys
 sys.path.insert(0, '../')
-from pipeline import *
+from .pipeline import *
 import argparse
 import h5py
 import os
@@ -11,11 +11,11 @@ import torch
 from torch.autograd import Variable
 from torch import nn
 from torch import cuda
-from holder import *
-from optimizer import *
-from util import *
-from backward_hooks import *
-from embeddings import *
+from .holder import *
+from .optimizer import *
+from .util import *
+from .backward_hooks import *
+from .embeddings import *
 
 
 
@@ -293,7 +293,7 @@ def main(args):
 
 	# then perform mira fit
 	# just one pass sgd, run multiple if need to overfit
-	for i in xrange(10):
+	for i in range(10):
 		print('epoch {0}'.format(i))
 		pipeline, y = mirafit_to_ex(opt, shared, embeddings, optim, pipeline, ex, w_start)
 		print(y)

@@ -49,7 +49,7 @@ def pick_constrained_span(p1, p2, is_cuda=False):
 	mats = p1.unsqueeze(-1) * p2.unsqueeze(1)	# (batch_l, context_l, context_l)
 	#
 	spans = []
-	for i in xrange(mats.shape[0]):
+	for i in range(mats.shape[0]):
 		# get the upper triangular matrix
 		triu = np.triu(mats[i].cpu().numpy())
 		# get the max index
@@ -87,7 +87,7 @@ def get_span_f1(pred, gold):
 	overlap = (end - start).clamp(min=0)
 
 	# recall
-	rec = overlap.float() / gold_range.float()
+	rec = overlap.item() / gold_range.item()
 
 	# numerical fixes for precision
 	pred_range = pred_range.clamp(min=0)
@@ -112,7 +112,7 @@ def evaluate(opt, shared, m, data):
 	val_idx2_correct = 0
 
 	m.begin_pass()
-	for i in xrange(data.size()):
+	for i in range(data.size()):
 		data_name, source, target, batch_ex_idx, batch_l, source_l, target_l, label, res_map, raw = data[i]
 
 		wv_idx1 = Variable(source, requires_grad=False)

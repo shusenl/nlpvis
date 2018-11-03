@@ -33,7 +33,7 @@ def print_attention(opt, shared, m, att_name):
 
 	batch_att = getattr(shared, att_name)
 	print('printing {0} for {1} examples...'.format(att_name, shared.batch_l))
-	for i in xrange(shared.batch_l):
+	for i in range(shared.batch_l):
 		ex_id = shared.batch_ex_idx[i]
 		att = batch_att.data[i, :, :]
 
@@ -44,7 +44,7 @@ def print_attention(opt, shared, m, att_name):
 		if opt.num_att_labels != 1:
 			chunks = []
 			sent_l2 = att.shape[2] / self.num_att_labels
-			for l in xrange(opt.num_att_labels):
+			for l in range(opt.num_att_labels):
 				# get the chunk and transpose it
 				chunks.append(att[:, l*sent_l2:(l+1)*sent_l2].unsqueeze(0))
 			att_3d = torch.cat(chunks, 0)

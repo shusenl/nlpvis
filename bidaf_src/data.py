@@ -40,7 +40,7 @@ class Data():
 			self.vocab = load_dict(opt.dict)
 
 		self.batches = []
-		for i in xrange(self.length):
+		for i in range(self.length):
 			start = self.batch_idx[i]
 			end = start + self.batch_l[i]
 
@@ -51,7 +51,7 @@ class Data():
 
 			raw = []
 			if opt.dict != '':
-				for k in xrange(end-start):
+				for k in range(end-start):
 					src = source_i[k]
 					tgt = target_i[k]
 					src_toks = [self.vocab[idx] for idx in src]
@@ -68,7 +68,7 @@ class Data():
 
 		# count examples
 		self.num_ex = 0
-		for i in xrange(self.length):
+		for i in range(self.length):
 			self.num_ex += self.batch_l[i]
 
 
@@ -182,7 +182,7 @@ class Data():
 		source, target, batch_l, source_l, target_l, span, raw = self.batches[idx]
 
 		# get batch ex indices
-		batch_ex_idx = [self.ex_idx[i] for i in xrange(self.batch_idx[idx], self.batch_idx[idx] + self.batch_l[idx])]
+		batch_ex_idx = [self.ex_idx[i] for i in range(self.batch_idx[idx], self.batch_idx[idx] + self.batch_l[idx])]
 
 		res_map = self.__get_res(idx)
 
@@ -195,7 +195,7 @@ class Data():
 			return None
 
 
-		batch_ex_idx = [self.ex_idx[i] for i in xrange(self.batch_idx[idx], self.batch_idx[idx] + self.batch_l[idx])]
+		batch_ex_idx = [self.ex_idx[i] for i in range(self.batch_idx[idx], self.batch_idx[idx] + self.batch_l[idx])]
 
 		all_res = {}
 		for res_n in self.res_names:

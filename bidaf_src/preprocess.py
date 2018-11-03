@@ -137,7 +137,7 @@ def convert(args, word_indexer, srcfile, targetfile, spanfile, batchsize, seqlen
     source_lengths = np.zeros((num_ex,), dtype=int)
     target_lengths = np.zeros((num_ex,), dtype=int) # target sentence length (1 sentence)
     spans = np.zeros((num_ex, 2), dtype=int)
-    batch_keys = np.array([None for _ in xrange(num_ex)])
+    batch_keys = np.array([None for _ in range(num_ex)])
     ex_idx = np.zeros(num_ex, dtype=int)
 
     dropped = 0
@@ -218,14 +218,14 @@ def convert(args, word_indexer, srcfile, targetfile, spanfile, batchsize, seqlen
     batch_l = []
     target_l_new = []
     source_l_new = []
-    for i in xrange(len(batch_location)-1):
+    for i in range(len(batch_location)-1):
         end_location = batch_location[i+1]
         while cur_idx < end_location:
             cur_idx = min(cur_idx + batchsize, end_location)
             batch_idx.append(cur_idx)
 
     # rearrange examples according to batch strides
-    for i in xrange(len(batch_idx)):
+    for i in range(len(batch_idx)):
         end = batch_idx[i+1] if i < len(batch_idx)-1 else len(sources)
 
         batch_l.append(end - batch_idx[i])
@@ -233,7 +233,7 @@ def convert(args, word_indexer, srcfile, targetfile, spanfile, batchsize, seqlen
         target_l_new.append(target_l[batch_idx[i]])
 
         # sanity check
-        for k in xrange(batch_idx[i], end):
+        for k in range(batch_idx[i], end):
             assert(source_l[k] == source_l_new[-1])
             assert(target_l[k] == target_l_new[-1])
             assert(sources[k, source_l[k]:].sum() == 0)

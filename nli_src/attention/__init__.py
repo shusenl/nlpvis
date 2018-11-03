@@ -1,1 +1,1 @@
-from local_attention import *
+from .local_attention import *

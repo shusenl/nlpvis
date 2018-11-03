@@ -13,7 +13,7 @@
 #	print(k)
 #
 #print(len(j_obj['data'][0]['paragraphs']))
-#for i in xrange(len(j_obj['data'][0]['paragraphs'])):
+#for i in range(len(j_obj['data'][0]['paragraphs'])):
 #	par_i = j_obj['data'][0]['paragraphs'][i]
 #	print('context', par_i['context'])
 #	context = par_i['context']
@@ -57,7 +57,7 @@
 #
 #def remap_char_idx(context, context_toks, char_idx):
 #	context_tok_seq = ' '.join(context_toks)
-#	m = [-1 for _ in xrange(len(context))]
+#	m = [-1 for _ in range(len(context))]
 #	i = 0
 #	j = 0
 #	while (i < len(context) and j < len(context_tok_seq)):

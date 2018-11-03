@@ -225,7 +225,7 @@ class modelInterface:
         print self.shared.keys()
         # print "get attention: ", att_name
         # print('printing {0} for {1} examples...'.format(att_name, self.shared.batch_l))
-        # for i in xrange(self.shared.batch_l):
+        # for i in range(self.shared.batch_l):
         #     ex_id = self.shared.batch_ex_idx[i]
         #remove the attention corresponds to <s>
         # att = batch_att.data[0, 0:, 0:]
@@ -282,7 +282,7 @@ class modelInterface:
             # just one pass sgd
             self.pipeline = perturb_params(self.opt, self.shared, self.pipeline)
             # self.pipeline, y = overfit_to_ex(self.opt, self.shared, self.embeddings, self.optim, self.pipeline, ex)
-            for i in xrange(interation):
+            for i in range(interation):
                 # print('epoch {0}'.format(i))
                 m, y = mirafit_to_ex(self.opt, self.shared, self.embeddings, self.optim, self.pipeline, ex, w_start)
                 print(y.numpy().tolist())

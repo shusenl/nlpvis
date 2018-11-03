@@ -56,9 +56,9 @@ if __name__ == '__main__':
     o.foo = "bar"
     o['lumberjack'] = 'foo'
     o.update({'a': 'b'}, c=44)
-    print '__first' not in o
-    print 'foo' in o
-    print o.lumberjack
-    print 'lumberjack' in o
-    print o
+    # print '__first' not in o
+    # print 'foo' in o
+    # print o.lumberjack
+    # print 'lumberjack' in o
+    # print o
     

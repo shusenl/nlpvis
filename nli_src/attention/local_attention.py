@@ -61,7 +61,7 @@ class LocalAttention(torch.nn.Module):
 
 		# to use externally specified att values and discard the computed ones
 		if self.opt.customize_att == 1:
-			print "###### using custoimized_att #######"
+			print("###### using custoimized_att #######")
 			# self.shared.customized_att* will be a torch tensor
 			# thus wrap the tensor in Variable to proceed forward pass
 			customized1 = self.shared.customized_att1 if self.opt.gpuid == -1 else self.shared.customized_att1.cuda()

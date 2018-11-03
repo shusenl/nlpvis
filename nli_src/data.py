@@ -42,7 +42,7 @@ class Data():
 		self.ex_idx -= 1
 
 		self.batches = []
-		for i in xrange(self.length):
+		for i in range(self.length):
 			start = self.batch_idx[i]
 			end = start + self.batch_l[i]
 			source_i = self.source[start:end, 0:self.source_l[i]]
@@ -63,7 +63,7 @@ class Data():
 		source, target, batch_l, source_l, target_l, label = self.batches[idx]
 
 		# get batch ex indices
-		batch_ex_idx = [self.ex_idx[i] for i in xrange(self.batch_idx[idx], self.batch_idx[idx] + self.batch_l[idx])]
+		batch_ex_idx = [self.ex_idx[i] for i in range(self.batch_idx[idx], self.batch_idx[idx] + self.batch_l[idx])]
 
 		return (self.data_name, source, target, batch_ex_idx, batch_l, source_l, target_l, label)
 

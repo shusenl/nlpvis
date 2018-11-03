@@ -67,7 +67,7 @@ def pick_constrained_span(p1, p2, is_cuda=False):
 	mats = p1.unsqueeze(-1) * p2.unsqueeze(1)	# (batch_l, context_l, context_l)
 	#
 	spans = []
-	for i in xrange(mats.shape[0]):
+	for i in range(mats.shape[0]):
 		# get the upper triangular matrix
 		triu = np.triu(mats[i].cpu().numpy())
 		# get the max index
@@ -140,7 +140,7 @@ def train_batch(opt, shared, m, optim, ema, data, epoch_id, sub_idx=None):
 
 	m.train(True)
 	m.begin_pass()
-	for i in xrange(data_size):
+	for i in range(data_size):
 		data_name, source, target, batch_ex_idx, batch_l, source_l, target_l, span, res_map, raw = data[batch_order[i]]
 
 		wv_idx1 = Variable(source, requires_grad=False)
@@ -212,7 +212,7 @@ def train(opt, shared, m, optim, ema, train_data, valid_data):
 	sub_idx = train_data.subsample(opt.percent) if opt.percent != 1.0 else None
 	start = 0
 
-	for i in xrange(start, opt.epochs):
+	for i in range(start, opt.epochs):
 		loss, num_ex, train_acc1, train_acc2 = train_batch(opt, shared, m, optim, ema, train_data, i, sub_idx)
 		train_acc = (train_acc1 + train_acc2) / 2.0
 		train_perfs.append(train_acc)
@@ -226,7 +226,7 @@ def train(opt, shared, m, optim, ema, train_data, valid_data):
 		print('Val {0:.4f}/{1:.4f}, avg {2:.4f}'.format(val_acc1, val_acc2, val_acc))
 
 		str_perf_table = ''
-		for i in xrange(len(train_perfs)):
+		for i in range(len(train_perfs)):
 			str_perf_table += '{0}\t{1:.6f}\t{2:.6f}\n'.format(i+1, train_perfs[i], val_perfs[i])
 		print(str_perf_table)
 
@@ -255,7 +255,7 @@ def validate(opt, shared, m, data):
 	val_idx2_correct = 0
 
 	m.begin_pass()
-	for i in xrange(data.size()):
+	for i in range(data.size()):
 		data_name, source, target, batch_ex_idx, batch_l, source_l, target_l, label, res_map, raw = data[i]
 
 		wv_idx1 = Variable(source, requires_grad=False)

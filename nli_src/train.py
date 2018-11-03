@@ -1,6 +1,6 @@
 import sys
 sys.path.insert(0, '../')
-from pipeline import *
+from .pipeline import *
 import argparse
 import h5py
 import os
@@ -11,10 +11,10 @@ import torch
 from torch.autograd import Variable
 from torch import nn
 from torch import cuda
-from holder import *
-from optimizer import *
-from embeddings import *
-from data import *
+from .holder import *
+from .optimizer import *
+from .embeddings import *
+from .data import *
 
 parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
@@ -65,7 +65,7 @@ def train_batch(opt, shared, wv, m, optim, data, epoch_id):
 		criterion = criterion.cuda()
 
 	m.train(True)
-	for i in xrange(data.size()):
+	for i in range(data.size()):
 		data_name, source, target, batch_ex_idx, batch_l, source_l, target_l, label = data[batch_order[i]]
 
 		wv_idx1 = Variable(source, requires_grad=False)
@@ -121,7 +121,7 @@ def train(opt, shared, wv, m, optim, train_data, valid_data):
 	train_perfs = []
 	val_perfs = []
 
-	for i in xrange(opt.epochs):
+	for i in range(opt.epochs):
 		loss, num_ex, num_correct = train_batch(opt, shared, wv, m, optim, train_data, i)
 		train_acc = float(num_correct) / num_ex
 		train_perfs.append(train_acc)
@@ -134,7 +134,7 @@ def train(opt, shared, wv, m, optim, train_data, valid_data):
 		print('Val {0:.4f}'.format(val_acc))
 
 		str_perf_table = ''
-		for i in xrange(len(train_perfs)):
+		for i in range(len(train_perfs)):
 			str_perf_table += '{0}\t{1:.6f}\t{2:.6f}\n'.format(i+1, train_perfs[i], val_perfs[i])
 		print(str_perf_table)
 
@@ -159,7 +159,7 @@ def validate(opt, shared, wv, m, data):
 	if opt.gpuid != -1:
 		criterion = criterion.cuda()
 
-	for i in xrange(data.size()):
+	for i in range(data.size()):
 		data_name, source, target, batch_ex_idx, batch_l, source_l, target_l, label = data[i]
 
 		wv_idx1 = Variable(source, requires_grad=False)

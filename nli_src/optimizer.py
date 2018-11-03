@@ -3,9 +3,9 @@ sys.path.insert(0, '../')
 
 import torch
 from torch import nn
-from view import *
-from join_table import *
-from holder import *
+from .view import *
+from .join_table import *
+from .holder import *
 
 
 class Adagrad:
@@ -32,7 +32,7 @@ class Adagrad:
 			p.data.addcdiv_(-self.lr, grad, std)
 
 	def cuda(self):
-		for i in xrange(len(self.vars)):
+		for i in range(len(self.vars)):
 			self.vars[i] = self.vars[i].cuda()
 			
 			

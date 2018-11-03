@@ -1,6 +1,5 @@
 import sys
 sys.path.insert(0, '../')
-from pipeline import *
 import argparse
 import h5py
 import os
@@ -11,11 +10,12 @@ import torch
 from torch.autograd import Variable
 from torch import nn
 from torch import cuda
-from holder import *
-from optimizer import *
-from embeddings import *
-from data import *
-from util import *
+from .pipeline import *
+from .holder import *
+from .optimizer import *
+from .embeddings import *
+from .data import *
+from .util import *
 
 parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
@@ -57,7 +57,7 @@ def evaluate(opt, shared, wv, m, data):
 	predictionValue = []
 	groundTruthLabel = []
 	# number of batches
-	for i in xrange(data.size()):
+	for i in range(data.size()):
 		data_name, source, target, batch_ex_idx, batch_l, source_l, target_l, label = data[i]
 		# print "source, target: ", source, target
 
@@ -95,9 +95,9 @@ def evaluate(opt, shared, wv, m, data):
 
 	acc = float(num_correct) / num_sents
 	avg_loss = total_loss / num_sents
-	print "total sentence count:", num_sents
-	print "total prediction count:", len(predictionValue)
-	print "total groundTruthLabel count:", len(groundTruthLabel)
+	print( "total sentence count:", num_sents)
+	print( "total prediction count:", len(predictionValue))
+	print( "total groundTruthLabel count:", len(groundTruthLabel))
 
 	return (acc, avg_loss, predictionValue, groundTruthLabel)
 

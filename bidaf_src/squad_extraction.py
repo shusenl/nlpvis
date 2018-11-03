@@ -27,7 +27,7 @@ def write_to(ls, out_file):
 
 def remap_char_idx(context, context_toks):
 	context_tok_seq = ' '.join(context_toks)
-	m = [-1 for _ in xrange(len(context))]
+	m = [-1 for _ in range(len(context))]
 	i = 0
 	j = 0
 	while (i < len(context) and j < len(context_tok_seq)):

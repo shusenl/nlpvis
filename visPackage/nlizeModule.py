@@ -1,6 +1,6 @@
-from visModule import *
+from .visModule import *
 import pickle, sys
-from NLPutility import hiddenStateRecorder
+from .NLPutility import hiddenStateRecorder
 # sys.modules['hiddenStateRecorder'] = hiddenStateRecorder
 
 ############## specialized vis modules ################
@@ -79,8 +79,8 @@ class nlizeModule(visModule):
         #     sentence = sentence + "\n"
 
         neighbors = self.hiddenStore.neighborLookup("senEncoding",sentence);
-        print "reference:", sentence
-        print "neighbors:", neighbors
+        print ("reference:", sentence)
+        print ("neighbors:", neighbors)
         return neighbors
 
     def initSetup(self):
@@ -142,11 +142,11 @@ class nlizeModule(visModule):
         self.reloadModelCallback = callback
 
     def predictUpdate(self, newLabel, iteration, learningRate, encoderFlag, attFlag, classFlag, mira_c ):
-        print "predictUpdate", newLabel, iteration, learningRate, encoderFlag, attFlag, classFlag
+        print ("predictUpdate", newLabel, iteration, learningRate, encoderFlag, attFlag, classFlag)
         mode = dataManager.getData("updateMode")
         sentencePair = dataManager.getData("currentPair")['sentences']
         if sentencePair[0] and sentencePair[1]:
-            print " ===== predict update mode: ", mode
+            print (" ===== predict update mode: ", mode)
             if mode == "single":
 
                 att, pred = self.predictionUpdateHook(sentencePair, newLabel, iteration, learningRate, encoderFlag, attFlag, classFlag)
@@ -167,7 +167,7 @@ class nlizeModule(visModule):
                     for attFlag in [True, False]:
                         for classFlag in [True, False]:
                             if encoderFlag | attFlag | classFlag:
-                                print "batch run:", encoderFlag, attFlag, classFlag
+                                print ("batch run:", encoderFlag, attFlag, classFlag)
                                 # restore the pipeline
                                 self.reloadModelCallback()
                                 att, pred = self.predictionUpdateHook(sentencePair, newLabel, iteration, learningRate, encoderFlag, attFlag, classFlag, mira_c)
@@ -240,7 +240,7 @@ class nlizeModule(visModule):
         else:
             allTargetSens = [sentencePair[1]]
         # print "original s, t:"
-        print "all sens length:", len(allSourceSens), len(allTargetSens)
+        print ("all sens length:", len(allSourceSens), len(allTargetSens))
 
         ###### if there is only one pair #####
         if len(allSourceSens) <= 1 and len(allTargetSens) <= 1:
@@ -274,7 +274,7 @@ class nlizeModule(visModule):
 
                     # allPairsPrediction[j,i,:] = predResult
         # print allPairsPrediction
-        print "##### ratio:", 1.0-float(wrongPred)/float(allPred), wrongPred, allPred
+        print ("##### ratio:", 1.0-float(wrongPred)/float(allPred), wrongPred, allPred)
         # dataManager.setData("allAttention", allAttention)
         if self.hiddenStore:
             self.hiddenStore.buildSearchIndex("senEncoding")
@@ -291,7 +291,7 @@ class nlizeModule(visModule):
     def pipelineStatistic(self):
         pipelineData = self.pipelineStatisticCallback()
         pipeline = dataManager.getData("pipeline")
-        print pipeline
+        # print pipeline
         for index, component in enumerate(pipeline):
             pipeline[index]["hist"] = pipelineData[index]
 

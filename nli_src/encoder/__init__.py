@@ -1,1 +1,1 @@
-from proj_encoder import *
+from .proj_encoder import *

@@ -12,9 +12,10 @@
 from flask import Flask
 import socketio
 import eventlet
-from socketioManager import *
 import webbrowser, threading
-from NLPutility import tokenizer
+from .NLPutility import tokenizer
+from .socketioManager import *
+
 import time
 import json
 
@@ -102,7 +103,7 @@ class visModule(object):
             else:
                 return perturbed
         else:
-            print "No sentence perturbator is specified!"
+            print ("No sentence perturbator is specified!")
             return False
 
     #get sentence parse tree
@@ -111,5 +112,5 @@ class visModule(object):
             depTree = self.parserHook(sentence)
             return {"depTree": depTree, "sentence":sentence}
         else:
-            print "No sentence parser is specified!"
+            print ("No sentence parser is specified!")
             return False

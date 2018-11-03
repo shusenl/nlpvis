@@ -81,11 +81,11 @@ class DropoutLSTMLayer(torch.nn.Module):
 		batch_l, seq_l, input_size = x.shape
 
 		# forward pass
-		output_fw = [None for _ in xrange(seq_l)]
+		output_fw = [None for _ in range(seq_l)]
 		h_fw = self.h_fw_init.expand(batch_l, -1)
 		c_fw = self.c_fw_init.expand(batch_l, -1)
 		x_fw = x * self.fw_x_mask
-		for i in xrange(seq_l):
+		for i in range(seq_l):
 			h_fw1 = h_fw * self.fw_h_mask
 			h_fw, c_fw = self.cell_fw(x[:, i, :], (h_fw, c_fw))
 			output_fw[i] = h_fw.unsqueeze(1)	# (batch_l, 1, hidden_size)
@@ -93,11 +93,11 @@ class DropoutLSTMLayer(torch.nn.Module):
 		rs = self.fw_joiner(output_fw)
 
 		if self.bidirectional is True:
-			output_bw = [None for _ in xrange(seq_l)]
+			output_bw = [None for _ in range(seq_l)]
 			h_bw = self.h_bw_init.expand(batch_l, -1)
 			c_bw = self.c_bw_init.expand(batch_l, -1)
 			x_bw = x * self.bw_x_mask
-			for i in xrange(seq_l-1, -1, -1):
+			for i in range(seq_l-1, -1, -1):
 				h_bw1 = h_bw * self.bw_h_mask
 				h_bw, c_bw = self.cell_bw(x[:, i, :], (h_bw1, c_bw))
 				output_bw[i] = h_bw.unsqueeze(1)	# (batch_l, 1, hidden_size)
@@ -114,7 +114,7 @@ class DropoutLSTM(torch.nn.Module):
 		assert(batch_first is True)
 
 		self.rnn_layers = []
-		for i in xrange(num_layers):
+		for i in range(num_layers):
 			in_size = input_size
 			if i > 0:
 				if bidirectional:
@@ -130,14 +130,14 @@ class DropoutLSTM(torch.nn.Module):
 
 	# change the dropout ratio
 	def dropout(self, p):
-		for i in xrange(self.num_layers):
+		for i in range(self.num_layers):
 			self.rnn_layers[i].dropout(p)
 
 
 	# x must be of shape (batch_l, seq_l, input_size)
 	# For simplicity, will output no hidden states
 	def forward(self, x):
-		for i in xrange(self.num_layers):
+		for i in range(self.num_layers):
 			x, _ = self.rnn_layers[i](x)
 
 		return x, None

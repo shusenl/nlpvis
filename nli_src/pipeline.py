@@ -6,18 +6,18 @@ import sys
 import torch
 from torch import nn
 from torch import cuda
-from view import *
-from join_table import *
-from holder import *
+from .view import *
+from .join_table import *
+from .holder import *
 # from proj_encoder import *
-from encoder import *
+from .encoder import *
 # from local_attention import *
-from attention import *
+from .attention import *
 # from local_classifier import *
-from classifier import *
+from .classifier import *
+from .optimizer import *
 from torch.autograd import Variable
 import numpy as np
-from optimizer import *
 import time
 
 class Pipeline(torch.nn.Module):
@@ -157,7 +157,7 @@ def overfit():
 	print(m.state_dict())
 
 
-	for i in xrange(300):
+	for i in range(300):
 		print('epoch: {0}'.format(i+1))
 
 		shared.out = m(shared.input1, shared.input2)

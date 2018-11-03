@@ -42,7 +42,7 @@ def visualize(args):
 	targ_data = load_data(args.targfile)
 	att_data = load_att(args.attfile)
 
-	ex_idx = args.ex_idx.split(',') if args.ex_idx != 'all' else [str(i) for i in xrange(0, len(att_data))]
+	ex_idx = args.ex_idx.split(',') if args.ex_idx != 'all' else [str(i) for i in range(0, len(att_data))]
 
 	for ex in ex_idx:
 		ex_att = sample_att(att_data, ex)
@@ -79,7 +79,7 @@ def visualize(args):
 		if num_labels == 1:
 			axes = [axes]
 
-		for l in xrange(num_labels):
+		for l in range(num_labels):
 			ax = axes[l]
 
 			im = ax.imshow(ex_att[l], interpolation='none')
