@@ -1,7 +1,13 @@
 import nltk
 from nltk.corpus import wordnet as wn
 from nltk.stem import WordNetLemmatizer
-from pattern.en import pluralize, singularize
+try:
+    from pattern.en import pluralize, singularize
+except:
+    try:
+        from pattern3.en import pluralize, singularize
+    except:
+        print("No pattern library is imported")
 import copy
 
 import sys

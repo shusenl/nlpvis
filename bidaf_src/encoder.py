@@ -3,13 +3,13 @@ import sys
 import torch
 from torch import nn
 from torch.autograd import Variable
-from view import *
-from holder import *
-from util import *
-from highway import *
-from join_table import *
-from dropout_lstm import *
-from locked_dropout import *
+from .view import *
+from .holder import *
+from .util import *
+from .highway import *
+from .join_table import *
+from .dropout_lstm import *
+from .locked_dropout import *
 
 # encoder
 class Encoder(torch.nn.Module):

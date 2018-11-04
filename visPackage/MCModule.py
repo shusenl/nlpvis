@@ -1,4 +1,4 @@
-from visModule import *
+from .visModule import *
 
 ############## specialized vis modules ################
 

@@ -1,6 +1,6 @@
-## FIXME fix the import ###
 from visPackage.nlizeModule import nlizeModule
 from nli_src import modelInterface
+
 # from NLPutility import translationPerturbation
 from NLPutility import sentenceGenerator
 from NLPutility import dependencyTree

@@ -1,7 +1,11 @@
 '''
 Send and receive data between server and client using SocketIO
 '''
-from sets import Set
+try:
+    from sets import Set
+except Exception:
+    Set = set
+    pass # python version 3
 import socketio
 import json
 import numpy as np

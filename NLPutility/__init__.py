@@ -1,16 +1,14 @@
 try:
     import google.cloud
-    from translationPerturbation import *
+    from .translationPerturbation import *
 except:
-    print "google cloud libray is not installed!"
+    print("Translation perturbation is not imported!")
 
 try:
-    import pattern.en
-    from sentenceGenerator import *
+    from .sentenceGenerator import *
 except:
-    print "pattern.en is not installed!"
+    print("Wordnet perturbation is not imported!")
 
-from dependencyTree import *
-from hiddenStateRecorder import *
-# from sentece_perturbation import *
-from tokenizer import *
+from .dependencyTree import *
+from .hiddenStateRecorder import *
+from .tokenizer import *

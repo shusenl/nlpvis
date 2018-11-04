@@ -5,7 +5,7 @@ store the NLP model inner states during the evaluation process
 
 #### for baseline performance
 # from sklearn.neighbors import NearestNeighbors
-import bson
+# import bson
 import numpy as np
 import pickle
 
@@ -68,7 +68,7 @@ class hiddenStateRecorder:
         store = self.hiddenStore[stateType]
         self.hiddenStore[stateType] = {}
         size = len(store)
-        print "build index for ", size, " sentence ..."
+        print( "build index for ", size, " sentence ...")
         data = self.hiddenStore[stateType]["data"] = np.zeros( (store[store.keys()[0]].size, size) )
         sen2index = self.hiddenStore[stateType]["sen2index"] = {}
         index2sen = self.hiddenStore[stateType]["index2sen"] = []
@@ -88,8 +88,8 @@ class hiddenStateRecorder:
             sen2index = self.hiddenStore[stateType]["sen2index"]
             index2sen = self.hiddenStore[stateType]["index2sen"]
             # print "sen2index:", sen2index
-            print "index2sen:", index2sen
-            print "keys:", sen2index.keys()
+            print ("index2sen:", index2sen)
+            print ("keys:", sen2index.keys())
 
             index = sen2index[tag]
             data = self.hiddenStore[stateType]["data"]

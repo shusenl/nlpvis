@@ -9,7 +9,7 @@ class dependencyTree:
 
     def hashSentence(self, sentence):
         # print "sentence:", sentence
-        hex_dig = hashlib.sha1(sentence).hexdigest()
+        hex_dig = hashlib.sha1(sentence.encode('utf-8')).hexdigest()
         # print(hex_dig)
         return hex_dig
 
@@ -26,7 +26,12 @@ class dependencyTree:
             path_to_models_jar = 'data/stanford-corenlp-3.9.0-models.jar'
             dependency_parser = StanfordDependencyParser(path_to_jar=path_to_jar, path_to_models_jar=path_to_models_jar)
 
-            g = dependency_parser.raw_parse(sentence).next()
+            try:
+                #py2
+                g = dependency_parser.raw_parse(sentence).next()
+            except:
+                #py3
+                g = next(dependency_parser.raw_parse(sentence))
 
             dep_json = []
 

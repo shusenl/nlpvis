@@ -3,18 +3,18 @@ import sys
 import torch
 from torch import nn
 from torch import cuda
-from view import *
-from join_table import *
-from holder import *
 import numpy as np
-from optimizer import *
 import time
 
-from embeddings import *
-from encoder import *
-from biattention import *
-from reencoder import *
-from classifier import *
+from .optimizer import *
+from .view import *
+from .join_table import *
+from .holder import *
+from .embeddings import *
+from .encoder import *
+from .biattention import *
+from .reencoder import *
+from .classifier import *
 
 
 class Pipeline(torch.nn.Module):

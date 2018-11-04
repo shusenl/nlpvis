@@ -1,5 +1,5 @@
 import sys
-from pipeline import *
+from .pipeline import *
 import argparse
 import h5py
 import os
@@ -10,9 +10,9 @@ import torch
 from torch.autograd import Variable
 from torch import nn
 from torch import cuda
-from holder import *
-from embeddings import *
-from data import *
+from .holder import *
+from .embeddings import *
+from .data import *
 
 parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 

@@ -3,10 +3,10 @@ import sys
 import torch
 from torch import nn
 from torch.autograd import Variable
-from view import *
-from holder import *
-from util import *
-from join_table import *
+from .view import *
+from .holder import *
+from .util import *
+from .join_table import *
 
 
 # customized lstm with inter-timestep dropout

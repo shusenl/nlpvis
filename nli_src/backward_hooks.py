@@ -5,11 +5,11 @@
 import torch
 from torch import nn
 from torch import cuda
-from holder import *
 from torch.autograd import Variable
 import numpy as np
 import warnings
 import math
+from .holder import *
 
 
 def register_grad(shared, name):

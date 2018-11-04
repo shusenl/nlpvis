@@ -2,10 +2,10 @@ import sys
 import math
 import torch
 from torch import nn
-from view import *
-from join_table import *
-from holder import *
-from util import *
+from .view import *
+from .join_table import *
+from .holder import *
+from .util import *
 
 
 class Adagrad:

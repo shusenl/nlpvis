@@ -13,7 +13,7 @@ from flask import Flask
 import socketio
 import eventlet
 import webbrowser, threading
-from .NLPutility import tokenizer
+from NLPutility import tokenizer
 from .socketioManager import *
 
 import time

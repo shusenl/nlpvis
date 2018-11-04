@@ -3,7 +3,7 @@ Test the model
 python2.7 eval.py --gpuid -1 --data ../data/bidaf/squad-val.hdf5 --word_vecs ../data/bidaf/glove.hdf5 --rnn_type lstm --word_vec_size 300 --load_file ../data/bidaf/bidaf_5.ema
 '''
 
-from pipeline import *
+from .pipeline import *
 import argparse
 import h5py
 import os
@@ -11,13 +11,14 @@ import random
 import time
 import numpy as np
 import torch
+import nltk
+
 from torch.autograd import Variable
 from torch import nn
 from torch import cuda
-from holder import *
-from embeddings import *
-import nltk
-from data import *
+from .holder import *
+from .embeddings import *
+from .data import *
 
 class bidafModelInterface:
     def __init__(self, wordDict, wordVec, model):
@@ -90,7 +91,7 @@ class bidafModelInterface:
         # print dir(self.shared)
         # print "att_name:", att_name
         batch_att = getattr(self.shared, att_name)
-        print self.shared.keys()
+        print (self.shared.keys())
         att = batch_att.data[0, 0:, 0:]
         att = att.numpy()
         # print "attention range:", att.min(), att.max()
@@ -104,8 +105,8 @@ class bidafModelInterface:
         if sourceSen and targetSen:
             source = self.mapToToken(sourceSen)
             target = self.mapToToken(targetSen)
-            print source, "\n"
-            print target, "\n"
+            print (source, "\n")
+            print (target, "\n")
 
             wv_idx1 = Variable(source, requires_grad=False)
             wv_idx2 = Variable(target, requires_grad=False)
@@ -122,10 +123,10 @@ class bidafModelInterface:
             p2 = log_p2.exp().data.numpy()
             startIndex = np.argmax(p1)
             endIndex = np.argmax(p2)
-            print "startIndex, endIndex", startIndex, endIndex
+            print ("startIndex, endIndex", startIndex, endIndex)
             words = sourceSen.rstrip().split(" ")
             prediction = ",".join(words[startIndex:endIndex+1])
-            print "prediction:", prediction
+            print ("prediction:", prediction)
             return [p1.tolist(), p2.tolist()]
 
             # loss

@@ -1,1 +1,1 @@
-from bidafModelInterface import *
+from .bidafModelInterface import *

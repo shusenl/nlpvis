@@ -3,8 +3,8 @@
 import torch
 from torch import nn
 from torch.autograd import Variable
-from holder import *
-from join_table import *
+from .holder import *
+from .join_table import *
 
 
 class CharCnn(torch.nn.Module):

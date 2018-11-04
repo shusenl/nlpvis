@@ -4,7 +4,7 @@ from torch import nn
 from torch import cuda
 import numpy as np
 import ujson
-from util import *
+from .util import *
 
 class Data():
 	def __init__(self, opt, data_file, res_files=None):

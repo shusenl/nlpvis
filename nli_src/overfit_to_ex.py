@@ -102,7 +102,7 @@ def perturb_params(opt, shared, m):
 
 # runs multiple passes of learning until fit to the right prediction
 def mirafit_to_ex(opt, shared, wv, optim, m, ex, w_start):
-	print "########## mirafit_to_ex ############"
+	print ("########## mirafit_to_ex ############")
 	m.train(True)
 	if opt.dropout != 0.0:
 		print('dropout should be 0 during overfitting.')
@@ -169,7 +169,7 @@ def mirafit_to_ex(opt, shared, wv, optim, m, ex, w_start):
 # ex is the pack of information for the batch of examples
 #	i.e. data[i] in train.py or eval.py
 def overfit_to_ex(opt, shared, wv, optim, m, ex):
-	print "########## overfit_to_ex ############"
+	print ("########## overfit_to_ex ############")
 	m.train(True)
 	if opt.dropout != 0.0:
 		print('dropout should be 0 during overfitting.')
@@ -233,7 +233,7 @@ def overfit_to_ex(opt, shared, wv, optim, m, ex):
 
 def main(args):
 	opt = parser.parse_args(args)
-	print opt, type(opt)
+	print (opt, type(opt))
 	shared = Holder()
 
 	torch.manual_seed(opt.seed)

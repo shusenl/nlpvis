@@ -4,9 +4,10 @@
 import torch
 from torch import nn
 from torch import cuda
-from holder import *
 import numpy as np
 import h5py
+
+from .holder import *
 
 # hacky flag
 def is_first_time(shared):

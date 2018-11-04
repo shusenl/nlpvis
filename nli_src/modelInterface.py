@@ -8,7 +8,7 @@ python eval.py --gpuid -1 --data ../data/snli_1.0-val.hdf5
 
 # import sys
 # sys.path.insert(0, '../')
-from pipeline import *
+from .pipeline import *
 import argparse
 import h5py
 import os
@@ -16,19 +16,24 @@ import random
 import time
 import numpy as np
 import torch
+try:
+    # Python 2
+    from itertools import izip
+except ImportError:
+    # Python 3
+    izip = zip
 from torch.autograd import Variable
 from torch import nn
 from torch import cuda
-from holder import *
-from optimizer import *
-from embeddings import *
-from data import *
-from forward_hooks import *
-from backward_hooks import *
-from util import *
-from eval import pick_label, evaluate
-from itertools import izip
-from overfit_to_ex import *
+from .holder import *
+from .optimizer import *
+from .embeddings import *
+from .data import *
+from .forward_hooks import *
+from .backward_hooks import *
+from .util import *
+from .eval import pick_label, evaluate
+from .overfit_to_ex import *
 
 
 class modelInterface:
@@ -88,7 +93,7 @@ class modelInterface:
         ##### whether or not using raw attention #####
         opt.customize_att = 0
         self.opt = opt
-        print opt, type(opt)
+        print (opt, type(opt))
 
         #read the wordDict
         self.tokenMap = {}
@@ -177,7 +182,7 @@ class modelInterface:
             for ssen, tsen, predLabel in izip(src, targ, label):
                 # print ssen, tsen, predLabel
                 # predLabel.append(label)
-                print groundTruthlabel[i], np.argmax(np.array(predictionValue[i])), predLabel
+                # print groundTruthlabel[i], np.argmax(np.array(predictionValue[i])), predLabel
                 i += 1
 
 
@@ -222,7 +227,7 @@ class modelInterface:
     def attention(self, att_name="att_soft1"):
         #get the current attention, this seems to be reading attention from file
         batch_att = getattr(self.shared, att_name)
-        print self.shared.keys()
+        print (self.shared.keys())
         # print "get attention: ", att_name
         # print('printing {0} for {1} examples...'.format(att_name, self.shared.batch_l))
         # for i in range(self.shared.batch_l):
@@ -245,7 +250,7 @@ class modelInterface:
         self.opt.zero_out_encoder = 0 if encoderFlag else 1
         self.opt.zero_out_attention = 0 if attFlag else 1
         self.opt.zero_out_classifier = 0 if classFlag else 1
-        print self.opt
+        # print self.opt
         # print "zero out setting:", self.opt.zero_out_encoder, self.opt.zero_out_attention, self.opt.zero_out_classifier
 
         self.opt.learning_rate = learningRate
@@ -278,7 +283,7 @@ class modelInterface:
 
             # get a initial w'
             # 	here, it's gonna be updated w using sgd
-            print self.opt
+            # print self.opt
             # just one pass sgd
             self.pipeline = perturb_params(self.opt, self.shared, self.pipeline)
             # self.pipeline, y = overfit_to_ex(self.opt, self.shared, self.embeddings, self.optim, self.pipeline, ex)
@@ -321,7 +326,7 @@ class modelInterface:
         self.shared.customized_att2 = torch.Tensor([att_soft2]).transpose(1,2)
         # print self.shared.customized_att2
 
-        print source.shape[1], target.shape[1]
+        print (source.shape[1], target.shape[1])
         self.pipeline.update_context(None, 1, source.shape[1], target.shape[1])
 
         # print word_vecs1, word_vecs2
@@ -339,7 +344,7 @@ class modelInterface:
         try:
             attr = getattr(self.shared, layerName).data.numpy()
         except:
-            print "Don't have layer info for:", layerName
+            print ("Don't have layer info for:", layerName)
         return attr
 
     def pipelineStatistic(self, infoType="mira"):
@@ -376,18 +381,18 @@ class modelInterface:
                     classifierG.append(self.mira_weight_offset[key].numpy().flatten())
 
         gradEncoder = np.concatenate(encoderG)
-        print "gradEncoder", gradEncoder.shape
+        print ("gradEncoder", gradEncoder.shape)
         gradAttention = np.concatenate(attentionG)
-        print "gradEncoder", gradAttention.shape
+        print ("gradEncoder", gradAttention.shape)
         gradClassifier = np.concatenate(classifierG)
-        print "gradClassifier", gradClassifier.shape
+        print ("gradClassifier", gradClassifier.shape)
         # exit(0)
         gmax = max(np.max(gradEncoder), np.max(gradAttention), np.max(gradClassifier))
         gmin = min(np.min(gradEncoder), np.min(gradAttention), np.min(gradClassifier))
-        print "gradient range", gmax, gmin
-        print "gradEncoder range", np.max(gradEncoder), np.min(gradEncoder)
-        print "gradAttention range", np.max(gradAttention), np.min(gradAttention)
-        print "gradClassifier range", np.max(gradClassifier), np.min(gradClassifier)
+        print ("gradient range", gmax, gmin)
+        print ("gradEncoder range", np.max(gradEncoder), np.min(gradEncoder))
+        print ("gradAttention range", np.max(gradAttention), np.min(gradAttention))
+        print ("gradClassifier range", np.max(gradClassifier), np.min(gradClassifier))
         # normEncoder = (gradEncoder-gmin)/(gmax-gmin)
         # print "normEncoder range:", np.min(normEncoder), np.max(normEncoder)
         histEncoder = np.histogram( gradEncoder, np.arange(gmin,gmax, (gmax-gmin)/15.0 ))
@@ -401,7 +406,7 @@ class modelInterface:
         histClassifier = [np.ma.log(histClassifier[0]).filled(0).tolist(),
             histClassifier[1].tolist()]
 
-        print histEncoder, histAttention, histClassifier
+        # print (histEncoder, histAttention, histClassifier)
         # print type(self.pipeline.classifier.parameters())
 
         return [histEncoder, histAttention, histClassifier]

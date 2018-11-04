@@ -1,6 +1,6 @@
 from .visModule import *
 import pickle, sys
-from .NLPutility import hiddenStateRecorder
+from NLPutility import hiddenStateRecorder
 # sys.modules['hiddenStateRecorder'] = hiddenStateRecorder
 
 ############## specialized vis modules ################
