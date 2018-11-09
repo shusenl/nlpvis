@@ -4,7 +4,9 @@
 # NLPVis
 
 ## Intro
-- This software is designed to visualize the attention of neural network based natural language models. Beside the visualization code, we also includes previous state-of-the-art natural language inference (NLI) and machine  comprehension (MC) model.
+- This software is designed to visualize the attention of neural network based natural language models. 
+- For the natural language inference task, we include our implementation of the decomposable attention model.
+- For the machine comprehensdion task, we include our implementation of the bidirectional attention flow model.
 
 [![Video Demonstration](teaser.png?raw=true)](https://www.youtube.com/watch?v=PKiM4i0oIuY)
 
