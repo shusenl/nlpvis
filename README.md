@@ -5,8 +5,7 @@
 
 ## Intro
 - This software is designed to visualize the attention of neural network based natural language models. Beside the visualization code, we also includes some state-of-the-art natural language inference (NLI) and machine  comprehension (MC) model.  
-The NLI learning code was extensively modified from Harvard NLP's reimplimentation of Ankur Parikh's decomposable attention model https://github.com/harvardnlp/decomp-attn.
-The MC model is based on the BiDAF implementation.
+- This repo contains our implementations of the decomposable attention model and the bidirectional attention flow model.
 
 [![Video Demonstration](teaser.png?raw=true)](https://www.youtube.com/watch?v=PKiM4i0oIuY)
 
