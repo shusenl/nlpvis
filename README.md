@@ -4,8 +4,7 @@
 # NLPVis
 
 ## Intro
-- This software is designed to visualize the attention of neural network based natural language models. Beside the visualization code, we also includes some state-of-the-art natural language inference (NLI) and machine  comprehension (MC) model.  
-- This repo contains our implementations of the decomposable attention model and the bidirectional attention flow model.
+- This software is designed to visualize the attention of neural network based natural language models. Beside the visualization code, we also includes previous state-of-the-art natural language inference (NLI) and machine  comprehension (MC) model.
 
 [![Video Demonstration](teaser.png?raw=true)](https://www.youtube.com/watch?v=PKiM4i0oIuY)
 
