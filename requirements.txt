@@ -7,3 +7,6 @@ google-cloud
 python-socketio
 eventlet
 pattern
+flask
+bson
+h5py
