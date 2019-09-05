@@ -1,15 +1,15 @@
 ##### using translation to generate paraphrased sentences #####
-from google.cloud import translate
+from google.cloud import translate_v3beta1 as translate
 
 class translationPerturbation:
     def __init__(self, authFilePath='key/Paraphrasing-684a368e96ad.json'):
         '''
-            Please provide your own google translation API key here 
+            Please provide your own google translation API key here
         '''
         self.translate_client = translate.Client.from_service_account_json(authFilePath)
 
     def perturbSentence(self, inputSentence):
-        print "\n\ntranslation perturbation:", inputSentence
+        print ("\n\ntranslation perturbation:", inputSentence)
         # The text to translate
 
         targLangs = [
@@ -43,5 +43,5 @@ class translationPerturbation:
             # print outputSentence
             sentenceList.add(outputSentence["translatedText"])
         perturbedSen = list(sentenceList)
-        print perturbedSen, "\n\n"
+        print (perturbedSen, "\n\n")
         return perturbedSen

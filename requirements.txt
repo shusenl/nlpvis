@@ -1,4 +1,4 @@
-torch 
+torch
 torchvision
 nltk
 requests
@@ -7,4 +7,5 @@ google-cloud
 python-socketio
 eventlet
 pattern3
-# sets
+flask
+h5py

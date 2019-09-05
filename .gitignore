@@ -4,4 +4,3 @@ ignore python cache
 ignore data files
 *.hdf5
 *.jar
-*.txt
